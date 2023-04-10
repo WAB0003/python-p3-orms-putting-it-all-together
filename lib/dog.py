@@ -20,7 +20,6 @@ class Dog:
         """
         
         CURSOR.execute(sql)
-        CONN.commit()
         
         
     @classmethod
@@ -30,7 +29,6 @@ class Dog:
         """
         
         CURSOR.execute(sql)
-        CONN.commit()
         
     def save(self):
         sql = """
@@ -39,7 +37,6 @@ class Dog:
         """
         
         CURSOR.execute(sql, (self.name,self.breed))
-        CONN.commit()
         self.id = CURSOR.execute("SELECT last_insert_rowid() FROM dogs").fetchone()[0]
     
     #! The Create method  both initializes a Song instance AND saves to the data base. At the end it will return the song instance 
@@ -122,7 +119,7 @@ class Dog:
         """
 
         CURSOR.execute(sql, (self.name, self.breed, self.id))
-        CONN.commit()
+
             
         
             
